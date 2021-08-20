@@ -1,0 +1,8 @@
+$_PUT = json_decode(file_get_contents('php://input'),true);
+        $motorista = new Motoristas($_PUT["Nombre"],$_PUT["Apellido"],$_PUT["NombreUsuario"],$_PUT["imagen"],$_PUT["Correo"],$_PUT["Contrasena"]);
+        $motorista->actualizarUsuario($_GET['id']);
+
+        $resultado ['mensaje'] = " Actualizar Motorista con el id:  " . $_GET['id'].
+                               " , informacion a actualizar: " . json_encode($_PUT);
+                               echo json_encode($resultado);
+
